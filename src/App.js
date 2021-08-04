@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { MainHeader } from "./components/MainHeader/MainHeader";
+import { Redirect, Route, Switch } from "react-router-dom";
+import "./App.css";
+import { Home } from "./Pages/Home";
+import { About } from "./Pages/About";
+import { Products } from "./Pages/Products";
+import { Contact } from "./Pages/Contact";
+import { ProductDetails } from "./Pages/ProductDetails";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MainHeader />
+      <main>
+        <Switch> {/*****to render only one Route at a time use switch & it renders the first path match top to bottom***/}
+          <Route path="/" exact>
+            <Redirect to="/home" />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/products/:productId">
+            <ProductDetails />
+          </Route>
+          <Route path="/products" exact>
+            <Products />
+          </Route>
+          <Route path="/contact-us">
+            <Contact />
+          </Route>
+        </Switch>
+      </main>
     </div>
   );
 }

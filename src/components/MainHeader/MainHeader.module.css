@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    height: 3.5rem;
+    background-color: rgb(19, 126, 197);
+}
+.navLinks{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+.navLinks li{
+   padding: 1rem;
+}
+.navLinks li a{
+    text-decoration: none;
+    color: rgb(223, 223, 223);
+    font-weight: 700;
+}
+
+.navLinks li a:hover{
+    cursor: pointer;
+    text-decoration: underline 3px;
+    color: whitesmoke;
+    font-size: 105%;
+}
